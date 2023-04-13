@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="np.com.esewa.learn.bloggingsite.entities.*" %>
+<%
+    User user = (User) session.getAttribute("currentUser");
+    if (user!=null){
+        response.sendRedirect("profile.jsp");
+    }
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +29,7 @@
 <!-- Navigation bar -->
 <%@include file="topNavbar.jsp" %>
 
-<main class=" primary-background banner-bg" style="padding-bottom:80; height:80vh;">
+<main class=" primary-background banner-bg" style="padding-bottom:80px; height:80vh;">
 <div class="container">
 	<div class="row">
 	  <div class="col-md-6 offset-md-3">
@@ -32,22 +39,22 @@
  
 <form action="RegisterServlet" method="POST" id="reg-form">
   <div class="form-group">
-  <label for="user_name">User Name</label>
-    <input type="text" class="form-control" name="userName" required aria-describedby="textHelp" placeholder="Enter username">
-    <label for="user_name">Email address</label>
-    <input type="email" class="form-control" required name="email" aria-describedby="emailHelp" placeholder="Enter email">
+  <label for="userName">User Name</label>
+    <input type="text" class="form-control" name="userName" required aria-describedby="textHelp" placeholder="Enter username" id="userName">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" required name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" required name="password" placeholder="Password">
+    <input type="password" class="form-control" id="exampleInputPassword1" required name="password" placeholder="Password">
   </div>
   
   <div class="form-group">
-  <label for="gender">Select Gender</label> <br>
-  <input type="radio" name="gender" id="gender" value="male">  Male 
-  <input type="radio" name="gender" id="gender" value="female">  Female
+  <label>Select Gender</label> <br>
+  <input type="radio" name="gender" id="genderM" value="male"> <label for="genderM">Male</label>
+  <input type="radio" name="gender" id="genderF" value="female"> <label for="genderF"> Female </label>
 </div>
 
 <div class="form-group">

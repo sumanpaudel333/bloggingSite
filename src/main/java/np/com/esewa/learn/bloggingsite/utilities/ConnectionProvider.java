@@ -12,7 +12,7 @@ public class ConnectionProvider {
 			// loading driver connection
 				Class.forName("com.mysql.cj.jdbc.Driver");
 			//creating connection
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bloggingSite","root","password");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bloggingSite","root","paudel123");
 			}
 		}
 		catch(Exception e) {
